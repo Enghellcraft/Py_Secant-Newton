@@ -74,16 +74,19 @@ while option != 1 | option != 2:
         print("Ud ingreso un caracter invalido")
 fun = input("Ingrese su funcion")
 epsilonChange = print("El margen de error ha sido definido en 3 decimales, si desea cambiarlo ingrese 0, sino ingrse 1")
-if epsilonChange == 0 : 
-    while option != 1 | option != 2:
-        epsilonChange = print("El margen de error puede cambiarse a 2 decimales Opcion 1, o 4 decimales Opcion 2")
-        if option == 1:
-            print("Ud selecciono 2 decimales")
-            epsilon = 0.001
-        elif option == 2:
-            print("Ud selecciono 4 decimales")
-            epsilon = 0.00001
-        else :  
-            print("Ud ingreso un caracter invalido")
-else :
-    epsilon = 0.0001
+while epsilonChange != 1 | epsilonChange != 2:
+    if epsilonChange == 0 : 
+        while option != 1 | option != 2:
+            epsilonChange = print("El margen de error puede cambiarse a 2 decimales Opcion 1, o 4 decimales Opcion 2")
+            if option == 1:
+                print("Ud selecciono 2 decimales")
+                epsilon = 0.001
+            elif option == 2:
+                print("Ud selecciono 4 decimales")
+                epsilon = 0.00001
+            else :  
+                print("Ud ingreso un caracter invalido")
+    elif epsilonChange == 1:
+        epsilon = 0.0001
+    else :  
+        print("Ud ingreso un caracter invalido")
