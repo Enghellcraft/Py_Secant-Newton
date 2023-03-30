@@ -21,7 +21,7 @@ def my_newton(f, x0, e, step):
     if df == 0:
         print("No congerge o lo hara con gran error ya que la derivada de la funcion es Cero")
     
-    print("El valor encontrado es", x0, ". El valor de la funcion con ese valor es:", (f.subs(x,x0)).evalf())
+    print("El valor encontrado en el paso ", step, "es", x0, ". \n El valor de la funcion con ese valor es:", (f.subs(x,x0)).evalf())
     
     if Abs((f.subs(x,x0)).evalf()) < e+0*I:
         return x0
@@ -48,6 +48,7 @@ def my_secant(f,x0,x1,e, step):
         x2 = x0 - (x1-x0)*(f.subs(x,x0)).evalf()/( (f.subs(x,x1)).evalf() - (f.subs(x,x0)).evalf() ) 
         
         print('Iteration %d, x2 = %0.6f and f(x2) = %0.6f' % (step, x2, (f.subs(x,x2)).evalf()))
+        print("El valor encontrado en el paso ", step, "es", x2, ". \n El valor de la funcion con ese valor es:", (f.subs(x,x2)).evalf())
         
         x0 = x1
         x1 = x2
@@ -72,3 +73,17 @@ while option != 1 | option != 2:
     else :  
         print("Ud ingreso un caracter invalido")
 fun = input("Ingrese su funcion")
+epsilonChange = print("El margen de error ha sido definido en 3 decimales, si desea cambiarlo ingrese 0, sino ingrse 1")
+if epsilonChange == 0 : 
+    while option != 1 | option != 2:
+        epsilonChange = print("El margen de error puede cambiarse a 2 decimales Opcion 1, o 4 decimales Opcion 2")
+        if option == 1:
+            print("Ud selecciono 2 decimales")
+            epsilon = 0.001
+        elif option == 2:
+            print("Ud selecciono 4 decimales")
+            epsilon = 0.00001
+        else :  
+            print("Ud ingreso un caracter invalido")
+else :
+    epsilon = 0.0001
