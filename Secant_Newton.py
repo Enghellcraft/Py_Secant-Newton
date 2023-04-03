@@ -52,8 +52,8 @@ def my_newton(f, x0, e, step):
     else:
         if step >= MAX_STEPS_ALLOWED:
             return no_roots_found(f, x0, f_x0, step)
-        x1 = x0 + 1
-        return my_secant(f, x0 - ((funcion / df).subs({x: x0}).evalf()), x0, epsilon, step)
+        x1 = x0 - (funcion / df).subs({x: x0}).evalf()
+        return my_secant(f, x1, x0, epsilon, step)
 
 
 # Secant Fun
